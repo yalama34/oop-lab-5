@@ -5,8 +5,8 @@
 
 class Selection {
     std::unique_ptr<std::weak_ptr<Point>[]> data_;
-    std::size_t size;
-    std::size_t capacity;
+    std::size_t size_;
+    std::size_t capacity_;
 
     void reserve(std::size_t new_capacity);
 
