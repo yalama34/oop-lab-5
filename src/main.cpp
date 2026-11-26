@@ -34,6 +34,7 @@ void printSelection(const Selection& selection) {
             std::cout << "[Expired] ";
         }
     }
+
     std::cout << '\n';
 }
 
@@ -47,6 +48,7 @@ int main() {
     while (true) {
         std::cout << "\nEnter command: ";
         if (!(std::cin >> command)) {
+            if (std::cin.eof()) {
                 break;
             }
             std::cin.clear();

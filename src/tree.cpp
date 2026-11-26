@@ -31,11 +31,13 @@ bool Tree::insertNode(std::unique_ptr<Node>& node, const Point& point) {
 
         return true;
     }
-    if (*node->data < point) {
-        return insertNode(node->right, point);
-    } else {
+    if (point < *node->data) {
         return insertNode(node->left, point);
     }
+    if (*node->data < point) {
+        return insertNode(node->right, point);
+    }
+    return false;
 }
 
 bool Tree::insert(const Point& point) {
