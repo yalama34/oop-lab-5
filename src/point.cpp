@@ -1,6 +1,8 @@
 #include "point.hpp"
 
-Point::Point(double x, double y): x_(x), y_(y) {
+int Point::alive_count_ = 0;
+Point::Point(double x, double y)
+    : x_(x), y_(y) {
     alive_count_++;
 }
 
@@ -13,17 +15,26 @@ Point::~Point() {
     alive_count_--;
 }
 
-double Point::x() const {return x_;}
-double Point::y() const {return y_;}
+double Point::x() const {
+    return x_;
+}
+
+double Point::y() const {
+    return y_;
+}
 
 bool Point::operator<(const Point& other) const {
-    return (x_ < other.x_ && y_ < other.y_);
+    if (x_ != other.x_) {
+        return x_ < other.x_;
+    }
+
+    return y_ < other.y_;
 }
 
 bool Point::operator==(const Point& other) const {
-    return (x_ == other.x_ && y_ < other.y_);
+    return x_ == other.x_ && y_ == other.y_;
 }
 
-int Point::aliveCount() noexcept {return alive_count_;}
-
-int Point::alive_count_ = 0;
+int Point::aliveCount() noexcept {
+    return alive_count_;
+}
