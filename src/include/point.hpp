@@ -7,7 +7,7 @@ class Point {
     static int alive_count_;
 
 public:
-    Point(double x_, double y_);
+    Point(double x, double y);
     Point(const Point& other);
 
     ~Point();

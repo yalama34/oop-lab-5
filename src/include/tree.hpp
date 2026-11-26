@@ -15,6 +15,12 @@ struct Node {
 class Tree {
     std::unique_ptr<Node> tree_;
     std::size_t size_ = 0;
+    bool insertNode(std::unique_ptr<Node>& node, const Point& point);
+    std::weak_ptr<Point> findNode(const std::unique_ptr<Node>& node, const Point& point) const;
+    bool removeNode(std::unique_ptr<Node>& node, const Point& point);
+    std::size_t heightNode (const std::unique_ptr<Node>& node) const noexcept;
+    void inorderNode(const std::unique_ptr<Node>& node, Selection& selection, const Criterion* criterion) const;
+    void reverseInorderNode(const std::unique_ptr<Node>& node, Selection& selection, const Criterion* criterion) const;
 
 public:
     Tree() = default;
@@ -24,7 +30,7 @@ public:
     Tree& operator=(const Tree& other) = delete;
 
     Tree(Tree&& other) noexcept;
-    Tree& operator=(const Tree&& other) noexcept;
+    Tree& operator=(Tree&& other) noexcept;
 
     bool insert(const Point& p);
     std::weak_ptr<Point> find(const Point& p) const;
