@@ -18,6 +18,9 @@ class Tree {
     bool insertNode(std::unique_ptr<Node>& node, const Point& point);
     std::weak_ptr<Point> findNode(const std::unique_ptr<Node>& node, const Point& point) const;
     bool removeNode(std::unique_ptr<Node>& node, const Point& point);
+    std::size_t heightNode (const std::unique_ptr<Node>& node) const noexcept;
+    void inorderNode(const std::unique_ptr<Node>& node, Selection& selection, const Criterion* criterion) const;
+    void reverseInorderNode(const std::unique_ptr<Node>& node, Selection& selection, const Criterion* criterion) const;
 
 public:
     Tree() = default;
