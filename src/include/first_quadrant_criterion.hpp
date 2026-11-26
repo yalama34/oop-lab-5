@@ -2,7 +2,7 @@
 
 #include "criterion.hpp"
 
-class FirstQuadrantCriterion: Criterion {
+class FirstQuadrantCriterion: public Criterion {
 public:
     bool matches(const Point& point) const override;
 };
