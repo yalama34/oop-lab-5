@@ -16,6 +16,8 @@ class Tree {
     std::unique_ptr<Node> tree_;
     std::size_t size_ = 0;
     bool insertNode(std::unique_ptr<Node>& node, const Point& point);
+    std::weak_ptr<Point> findNode(const std::unique_ptr<Node>& node, const Point& point) const;
+    bool removeNode(std::unique_ptr<Node>& node, const Point& point);
 
 public:
     Tree() = default;
